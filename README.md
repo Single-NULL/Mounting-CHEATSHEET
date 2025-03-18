@@ -29,7 +29,9 @@ sudo losetup -Pf --show driverbox.dd
 
 lsblk 
 
-###### 2. In het geval van meerdere partities, mount de eerste en tweede partitie als read-only
+###### 2. In het geval van twee partities, maak twee folders, mount de eerste en tweede partitie als read-only
+sudo mkdir -p /mnt/driver_box && sudo mkdir /mnt/driver_box1
+
 sudo mount -o ro /dev/loop0p1 /mnt/driver_box
 
 sudo mount -o ro /dev/loop0p2 /mnt/driver_box1
