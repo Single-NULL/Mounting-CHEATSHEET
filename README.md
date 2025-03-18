@@ -13,10 +13,12 @@ ls /mnt/EWF_mount
 
 ###### 4. Koppel de EWF image aan een loopback device en toon het toegewezen loopback apparaat
 sudo losetup -Pf --show /mnt/EWF_mount/ewf1
+
 lsblk
 
 ###### 5. Mount de eerste partitie van de image als read-only
 mkdir -p /mnt/image_partition1
+
 sudo mount -o ro /dev/loop0p1 /mnt/image_partition1
 
 
