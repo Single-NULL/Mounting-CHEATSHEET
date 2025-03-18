@@ -1,5 +1,10 @@
 # Mounting-CHEATSHEET
 
+#### Check loopback devices & mounted devices
+losetup -a
+
+findmnt
+
 # .E01 Encase files
 
 ###### 1. Maak een mount-directory aan voor de EnCase E01 image
