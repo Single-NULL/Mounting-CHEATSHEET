@@ -26,14 +26,17 @@ sudo mount -o ro /dev/loop0p1 /mnt/image_partition1
 
 ###### 1. Koppel het .dd of .raw bestand aan een loopback device en toon het toegewezen apparaat
 sudo losetup -Pf --show driverbox.dd
+
 lsblk 
 
 ###### 2. In het geval van meerdere partities, mount de eerste en tweede partitie als read-only
 sudo mount -o ro /dev/loop0p1 /mnt/driver_box
+
 sudo mount -o ro /dev/loop0p2 /mnt/driver_box1
 
 ###### 3. Unmount de partities als je klaar bent
 sudo umount /mnt/driver_box
+
 sudo umount /mnt/driver_box1
 
 ###### 4. Verwijder het loopback device om resources vrij te maken
@@ -47,10 +50,12 @@ mkdir -p /mnt/RAID_image1 /mnt/RAID_image2
 
 ###### 2. Mount de EnCase E01 images met ewfmount
 sudo ewfmount carimage1.E01 /mnt/RAID_image1
+
 sudo ewfmount carimage2.E01 /mnt/RAID_image2
 
 ###### 3. Koppel de EWF bestanden aan loopback devices
 sudo losetup /dev/loop10 /mnt/RAID_image1/ewf1
+
 sudo losetup /dev/loop11 /mnt/RAID_image2/ewf1
 
 ###### 4. Controleer of de loopback devices correct zijn toegewezen
@@ -69,8 +74,10 @@ sudo mdadm --stop /dev/md0
 
 ###### 2. Verwijder de loopback devices om resources vrij te maken
 sudo losetup -d /dev/loop10
+
 sudo losetup -d /dev/loop11
 
 ###### 3. Unmount de eerder gemaakte mount directories
 sudo umount /mnt/RAID_image1
+
 sudo umount /mnt/RAID_image2
